@@ -12,6 +12,7 @@ app.use(express.json());
 app.get("/", (req, res) => res.json({ message: "Retain API running" }));
 app.use("/api/auth", require("./routes/authRoutes"));
 app.use("/api/categories", require("./routes/categoryRoutes"));
+app.use("/api/expenses", require("./routes/expenseRoutes"));
 
 const PORT = process.env.PORT || 5000;
 connectDB().then(async () => {
