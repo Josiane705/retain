@@ -1,4 +1,4 @@
-import { Link, Outlet, useNavigate } from "react-router-dom";
+import { NavLink, Outlet, useNavigate } from "react-router-dom";
 import { useAuth } from "../hooks/useAuth";
 
 export default function Layout() {
@@ -13,10 +13,13 @@ export default function Layout() {
   return (
     <>
       <nav className="navbar">
-        <Link to="/dashboard" className="brand">Retain</Link>
+        <NavLink to="/dashboard" className="brand">
+          Retain
+        </NavLink>
         <div className="nav-links">
-          <Link to="/dashboard">Dashboard</Link>
-          {user?.role === "admin" && <Link to="/admin">Admin</Link>}
+          <NavLink to="/dashboard">Dashboard</NavLink>
+          <NavLink to="/expenses">Expenses</NavLink>
+          {user?.role === "admin" && <NavLink to="/admin">Admin</NavLink>}
           <button onClick={handleSignout}>Sign out ({user?.name})</button>
         </div>
       </nav>
