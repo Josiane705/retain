@@ -5,6 +5,9 @@ import AdminRoute from "./components/AdminRoute";
 import Signin from "./pages/Signin";
 import Signup from "./pages/Signup";
 import Dashboard from "./pages/Dashboard";
+import Expenses from "./pages/Expenses";
+import ExpenseForm from "./pages/ExpenseForm";
+import ExpenseDetails from "./pages/ExpenseDetails";
 import AdminDashboard from "./pages/AdminDashboard";
 
 export default function App() {
@@ -16,6 +19,10 @@ export default function App() {
       <Route element={<ProtectedRoute />}>
         <Route element={<Layout />}>
           <Route path="/dashboard" element={<Dashboard />} />
+          <Route path="/expenses" element={<Expenses />} />
+          <Route path="/expenses/new" element={<ExpenseForm />} />
+          <Route path="/expenses/:id" element={<ExpenseDetails />} />
+          <Route path="/expenses/:id/edit" element={<ExpenseForm />} />
 
           <Route element={<AdminRoute />}>
             <Route path="/admin" element={<AdminDashboard />} />
